@@ -42,9 +42,11 @@ void prtBoard(int board[][6]) {
 }
 
 int input(int board[][6], int player) {
+  char user[1000];
   int usr;
-  scanf("%d", &usr);
-  if (usr > 7 || usr < 1) {
+  scanf("%s", user);
+  usr = user[0] - '0';
+  if (usr > 7 || usr < 1 || user[1] != '\0') {
     system("clear");
     prtBoard(board);
     printf("bad input, try again\n");
