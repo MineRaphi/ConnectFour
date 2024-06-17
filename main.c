@@ -44,6 +44,14 @@ void prtBoard(int board[][6]) {
 int input(int board[][6], int player) {
   int usr;
   scanf("%d", &usr);
+  if (usr > 7 || usr < 1) {
+    system("clear");
+    prtBoard(board);
+    printf("bad input, try again\n");
+    input(board, player);
+    player = !player;
+    return player;
+  }
   for (int i = 5; i >= 0; i--) {
     if (board[usr - 1][i] == 0) {
       board[usr - 1][i] = player + 1;
